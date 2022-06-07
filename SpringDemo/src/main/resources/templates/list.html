@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>hello</title>
+</head>
+<bdoy>
+    <table border="1">
+        <tr>
+            <th>编号</th>
+            <th>名称</th>
+            <th>操作</th>
+        </tr>
+        <tr th:each="city : ${list}">
+            <!-- EL JSTL-->
+            <td th:text = "${city.id}"></td>
+            <td th:text = "${city.name}"></td>
+            <td><a th:href="@{'/del/'+${city.id} +'/'}">删除</a></td>
+        </tr>
+    </table>
+</bdoy>
+</html>

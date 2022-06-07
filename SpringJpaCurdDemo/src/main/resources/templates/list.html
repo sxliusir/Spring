@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <table border="1px" align="center">
+        <tr>
+            <th>id</th>
+            <th>loginName</th>
+            <th>nickName</th>
+            <th>age</th>
+            <th>address</th>
+            <th>operation</th>
+        </tr>
+        <tr th:each="list : ${list}">
+            <td th:text="${list.id}"></td>
+            <td th:text="${list.loginName}"></td>
+            <td th:text="${list.nickName}"></td>
+            <td th:text="${list.age}"></td>
+            <td th:text="${list.address}"></td>
+            <td>
+                <a th:href="@{'/view/'+${list.id} +'/'}">view</a>&nbsp;
+                <a th:href="@{'/edit/'+${list.id} +'/'}">edit</a>&nbsp;
+                <a th:href="@{'/del/'+${list.id} +'/'}">delete</a>
+            </td>
+        </tr>
+    </table>
+    </table>
+</body>
+</html>
