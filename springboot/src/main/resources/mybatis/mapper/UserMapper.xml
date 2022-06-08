@@ -3,9 +3,9 @@
 <mapper namespace="com.sxliusir.springboot.mapper.UserMapper">
   <resultMap id="BaseResultMap" type="com.sxliusir.springboot.mapper.User">
     <id column="id" jdbcType="INTEGER" property="id" />
-    <result column="login_name" jdbcType="VARCHAR" property="login_name" />
+    <result column="login_name" jdbcType="VARCHAR" property="loginName" />
     <result column="password" jdbcType="VARCHAR" property="password" />
-    <result column="nick_name" jdbcType="VARCHAR" property="nick_name" />
+    <result column="nick_name" jdbcType="VARCHAR" property="nickName" />
     <result column="age" jdbcType="TINYINT" property="age" />
     <result column="address" jdbcType="VARCHAR" property="address" />
   </resultMap>
@@ -111,19 +111,19 @@
   <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.sxliusir.springboot.mapper.User" useGeneratedKeys="true">
     insert into user (login_name, `password`, nick_name, 
       age, address)
-    values (#{login_name,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, #{nick_name,jdbcType=VARCHAR}, 
+    values (#{loginName,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, #{nickName,jdbcType=VARCHAR}, 
       #{age,jdbcType=TINYINT}, #{address,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.sxliusir.springboot.mapper.User" useGeneratedKeys="true">
     insert into user
     <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="login_name != null">
+      <if test="loginName != null">
         login_name,
       </if>
       <if test="password != null">
         `password`,
       </if>
-      <if test="nick_name != null">
+      <if test="nickName != null">
         nick_name,
       </if>
       <if test="age != null">
@@ -134,14 +134,14 @@
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="login_name != null">
-        #{login_name,jdbcType=VARCHAR},
+      <if test="loginName != null">
+        #{loginName,jdbcType=VARCHAR},
       </if>
       <if test="password != null">
         #{password,jdbcType=VARCHAR},
       </if>
-      <if test="nick_name != null">
-        #{nick_name,jdbcType=VARCHAR},
+      <if test="nickName != null">
+        #{nickName,jdbcType=VARCHAR},
       </if>
       <if test="age != null">
         #{age,jdbcType=TINYINT},
@@ -163,14 +163,14 @@
       <if test="record.id != null">
         id = #{record.id,jdbcType=INTEGER},
       </if>
-      <if test="record.login_name != null">
-        login_name = #{record.login_name,jdbcType=VARCHAR},
+      <if test="record.loginName != null">
+        login_name = #{record.loginName,jdbcType=VARCHAR},
       </if>
       <if test="record.password != null">
         `password` = #{record.password,jdbcType=VARCHAR},
       </if>
-      <if test="record.nick_name != null">
-        nick_name = #{record.nick_name,jdbcType=VARCHAR},
+      <if test="record.nickName != null">
+        nick_name = #{record.nickName,jdbcType=VARCHAR},
       </if>
       <if test="record.age != null">
         age = #{record.age,jdbcType=TINYINT},
@@ -186,9 +186,9 @@
   <update id="updateByExample" parameterType="map">
     update user
     set id = #{record.id,jdbcType=INTEGER},
-      login_name = #{record.login_name,jdbcType=VARCHAR},
+      login_name = #{record.loginName,jdbcType=VARCHAR},
       `password` = #{record.password,jdbcType=VARCHAR},
-      nick_name = #{record.nick_name,jdbcType=VARCHAR},
+      nick_name = #{record.nickName,jdbcType=VARCHAR},
       age = #{record.age,jdbcType=TINYINT},
       address = #{record.address,jdbcType=VARCHAR}
     <if test="_parameter != null">
@@ -198,14 +198,14 @@
   <update id="updateByPrimaryKeySelective" parameterType="com.sxliusir.springboot.mapper.User">
     update user
     <set>
-      <if test="login_name != null">
-        login_name = #{login_name,jdbcType=VARCHAR},
+      <if test="loginName != null">
+        login_name = #{loginName,jdbcType=VARCHAR},
       </if>
       <if test="password != null">
         `password` = #{password,jdbcType=VARCHAR},
       </if>
-      <if test="nick_name != null">
-        nick_name = #{nick_name,jdbcType=VARCHAR},
+      <if test="nickName != null">
+        nick_name = #{nickName,jdbcType=VARCHAR},
       </if>
       <if test="age != null">
         age = #{age,jdbcType=TINYINT},
@@ -218,9 +218,9 @@
   </update>
   <update id="updateByPrimaryKey" parameterType="com.sxliusir.springboot.mapper.User">
     update user
-    set login_name = #{login_name,jdbcType=VARCHAR},
+    set login_name = #{loginName,jdbcType=VARCHAR},
       `password` = #{password,jdbcType=VARCHAR},
-      nick_name = #{nick_name,jdbcType=VARCHAR},
+      nick_name = #{nickName,jdbcType=VARCHAR},
       age = #{age,jdbcType=TINYINT},
       address = #{address,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}

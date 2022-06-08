@@ -15,7 +15,7 @@ public class User implements Serializable {
     /**
      * 用户名
      */
-    private String login_name;
+    private String loginName;
 
     /**
      * 密码
@@ -25,7 +25,7 @@ public class User implements Serializable {
     /**
      * 昵称
      */
-    private String nick_name;
+    private String nickName;
 
     /**
      * 年龄
@@ -47,12 +47,12 @@ public class User implements Serializable {
         this.id = id;
     }
 
-    public String getLogin_name() {
-        return login_name;
+    public String getLoginName() {
+        return loginName;
     }
 
-    public void setLogin_name(String login_name) {
-        this.login_name = login_name;
+    public void setLoginName(String loginName) {
+        this.loginName = loginName;
     }
 
     public String getPassword() {
@@ -63,12 +63,12 @@ public class User implements Serializable {
         this.password = password;
     }
 
-    public String getNick_name() {
-        return nick_name;
+    public String getNickName() {
+        return nickName;
     }
 
-    public void setNick_name(String nick_name) {
-        this.nick_name = nick_name;
+    public void setNickName(String nickName) {
+        this.nickName = nickName;
     }
 
     public Byte getAge() {
@@ -100,9 +100,9 @@ public class User implements Serializable {
         }
         User other = (User) that;
         return (this.getId() == null ? other.getId() == null : this.getId().equals(other.getId()))
-            && (this.getLogin_name() == null ? other.getLogin_name() == null : this.getLogin_name().equals(other.getLogin_name()))
+            && (this.getLoginName() == null ? other.getLoginName() == null : this.getLoginName().equals(other.getLoginName()))
             && (this.getPassword() == null ? other.getPassword() == null : this.getPassword().equals(other.getPassword()))
-            && (this.getNick_name() == null ? other.getNick_name() == null : this.getNick_name().equals(other.getNick_name()))
+            && (this.getNickName() == null ? other.getNickName() == null : this.getNickName().equals(other.getNickName()))
             && (this.getAge() == null ? other.getAge() == null : this.getAge().equals(other.getAge()))
             && (this.getAddress() == null ? other.getAddress() == null : this.getAddress().equals(other.getAddress()));
     }
@@ -112,9 +112,9 @@ public class User implements Serializable {
         final int prime = 31;
         int result = 1;
         result = prime * result + ((getId() == null) ? 0 : getId().hashCode());
-        result = prime * result + ((getLogin_name() == null) ? 0 : getLogin_name().hashCode());
+        result = prime * result + ((getLoginName() == null) ? 0 : getLoginName().hashCode());
         result = prime * result + ((getPassword() == null) ? 0 : getPassword().hashCode());
-        result = prime * result + ((getNick_name() == null) ? 0 : getNick_name().hashCode());
+        result = prime * result + ((getNickName() == null) ? 0 : getNickName().hashCode());
         result = prime * result + ((getAge() == null) ? 0 : getAge().hashCode());
         result = prime * result + ((getAddress() == null) ? 0 : getAddress().hashCode());
         return result;
@@ -127,9 +127,9 @@ public class User implements Serializable {
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
         sb.append(", id=").append(id);
-        sb.append(", login_name=").append(login_name);
+        sb.append(", loginName=").append(loginName);
         sb.append(", password=").append(password);
-        sb.append(", nick_name=").append(nick_name);
+        sb.append(", nickName=").append(nickName);
         sb.append(", age=").append(age);
         sb.append(", address=").append(address);
         sb.append(", serialVersionUID=").append(serialVersionUID);

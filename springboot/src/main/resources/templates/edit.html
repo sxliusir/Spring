@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="/save" method="post">
+    <input type="hidden" name="id" id="id" th:value="${user.id}">
+    <div class="form-group">
+        <label for="loginName">loginName</label>
+        <input type="text" name="loginName" class="form-control" id="loginName" th:value="${user.loginName}">
+    </div>
+    <div class="form-group">
+        <label for="nickName">nickName</label>
+        <input type="text" name="nickName" class="form-control" id="nickName" th:value="${user.nickName}">
+    </div>
+    <div class="form-group">
+        <label for="age">age</label>
+        <input type="text" name="age" class="form-control" id="age" th:value="${user.age}">
+    </div>
+    <div class="form-group">
+        <label for="address">address</label>
+        <input type="text" name="address" class="form-control" id="address" th:value="${user.address}">
+    </div>
+    <button type="submit" class="btn btn-default">Submit</button>
+</form>
+</body>
+</html>
