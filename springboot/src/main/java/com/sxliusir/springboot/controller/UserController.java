@@ -19,7 +19,7 @@ public class UserController {
     UserService userService;
 
     /**
-     * 注册页面
+     * 注册
      * @return
      */
     @RequestMapping("/reg")
