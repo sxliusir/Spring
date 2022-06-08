@@ -5,9 +5,9 @@
     <title>Title</title>
 </head>
 <body>
-<a href="/reg">添加用户</a>
+<a href="/reg">add user</a>
 <table border="1px" align="center">
-    <tr>
+    <tr align="center">
         <th>id</th>
         <th>loginName</th>
         <th>nickName</th>
@@ -15,7 +15,7 @@
         <th>address</th>
         <th>operation</th>
     </tr>
-    <tr th:each="list : ${list}">
+    <tr th:each="list : ${list}" align="center">
         <td th:text="${list.id}"></td>
         <td th:text="${list.loginName}"></td>
         <td th:text="${list.nickName}"></td>
