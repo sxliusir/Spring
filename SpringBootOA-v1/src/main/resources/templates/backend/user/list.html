@@ -17,7 +17,7 @@
         <aside class="layout-sidebar">
             <!-- logo -->
             <div id="logo" class="sidebar-header">
-                <a href="index.html"><img th:src="@{/images/logo-sidebar.png}" title="" alt="" /></a>
+                <a href="/index/"><img th:src="@{/images/logo-sidebar.png}" title="" alt="" /></a>
             </div>
             <div class="layout-sidebar-scroll">
 
@@ -30,66 +30,8 @@
                                 <li> <a href="/user/list/">用户</a> </li>
                             </ul>
                         </li>
-                        <li class="nav-item nav-item-has-subnav">
-                            <a href="javascript:void(0)"><i class="mdi mdi-format-align-justify"></i> 表单</a>
-                            <ul class="nav nav-subnav">
-                                <li> <a href="forms_elements.html">基本元素</a> </li>
-                                <li> <a href="forms_radio.html">单选框</a> </li>
-                                <li> <a href="forms_checkbox.html">复选框</a> </li>
-                                <li> <a href="forms_switch.html">开关</a> </li>
-                            </ul>
-                        </li>
-                        <li class="nav-item nav-item-has-subnav">
-                            <a href="javascript:void(0)"><i class="mdi mdi-file-outline"></i> 示例页面</a>
-                            <ul class="nav nav-subnav">
-                                <li> <a href="pages_doc.html">文档列表</a> </li>
-                                <li> <a href="pages_gallery.html">图库列表</a> </li>
-                                <li> <a href="pages_config.html">网站配置</a> </li>
-                                <li> <a href="pages_rabc.html">设置权限</a> </li>
-                                <li> <a href="pages_add_doc.html">新增文档</a> </li>
-                                <li> <a href="pages_guide.html">表单向导</a> </li>
-                                <li> <a href="pages_login.html">登录页面</a> </li>
-                                <li> <a href="pages_error.html">错误页面</a> </li>
-                            </ul>
-                        </li>
-                        <li class="nav-item nav-item-has-subnav">
-                            <a href="javascript:void(0)"><i class="mdi mdi-language-javascript"></i> JS 插件</a>
-                            <ul class="nav nav-subnav">
-                                <li> <a href="js_datepicker.html">日期选取器</a> </li>
-                                <li> <a href="js_sliders.html">滑块</a> </li>
-                                <li> <a href="js_colorpicker.html">选色器</a> </li>
-                                <li> <a href="js_chartjs.html">Chart.js</a> </li>
-                                <li> <a href="js_jconfirm.html">对话框</a> </li>
-                                <li> <a href="js_tags_input.html">标签插件</a> </li>
-                                <li> <a href="js_notify.html">通知消息</a> </li>
-                            </ul>
-                        </li>
-                        <li class="nav-item nav-item-has-subnav">
-                            <a href="javascript:void(0)"><i class="mdi mdi-menu"></i> 多级菜单</a>
-                            <ul class="nav nav-subnav">
-                                <li> <a href="#!">一级菜单</a> </li>
-                                <li class="nav-item nav-item-has-subnav">
-                                    <a href="#!">一级菜单</a>
-                                    <ul class="nav nav-subnav">
-                                        <li> <a href="#!">二级菜单</a> </li>
-                                        <li class="nav-item nav-item-has-subnav">
-                                            <a href="#!">二级菜单</a>
-                                            <ul class="nav nav-subnav">
-                                                <li> <a href="#!">三级菜单</a> </li>
-                                                <li> <a href="#!">三级菜单</a> </li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li> <a href="#!">一级菜单</a> </li>
-                            </ul>
-                        </li>
                     </ul>
                 </nav>
-
-                <div class="sidebar-footer">
-                    <p class="copyright">Copyright &copy; 2019.  All rights <a href="http://www.bootstrapmb.com/">reserved</a>. </p>
-                </div>
             </div>
 
         </aside>
@@ -113,144 +55,16 @@
                     <ul class="topbar-right">
                         <li class="dropdown dropdown-profile">
                             <a href="javascript:void(0)" data-toggle="dropdown">
-                                <img class="img-avatar img-avatar-48 m-r-10" th:src="@{/images/users/avatar.jpg}" alt="管理员" />
-                                <span>管理员 <span class="caret"></span></span>
+                                <img class="img-avatar img-avatar-48 m-r-10" th:src="${user.getAvatar()}" th:alt="${user.getNickName()}"/>
+                                <span th:text="${user.getNickName()}"> <span class="caret"></span></span>
                             </a>
                             <ul class="dropdown-menu dropdown-menu-right">
-                                <li> <a href="pages_profile.html"><i class="mdi mdi-account"></i> 个人信息</a> </li>
-                                <li> <a href="pages_edit_pwd.html"><i class="mdi mdi-lock-outline"></i> 修改密码</a> </li>
-                                <li> <a href="javascript:void(0)"><i class="mdi mdi-delete"></i> 清空缓存</a></li>
+                                <li> <a href="/user/profile/"><i class="mdi mdi-account"></i> 个人信息</a> </li>
+                                <li> <a href="/user/editPwd/"><i class="mdi mdi-lock-outline"></i> 修改密码</a> </li>
                                 <li class="divider"></li>
-                                <li> <a href="pages_login.html"><i class="mdi mdi-logout-variant"></i> 退出登录</a> </li>
+                                <li> <a href="/user/logout/"><i class="mdi mdi-logout-variant"></i> 退出登录</a> </li>
                             </ul>
                         </li>
-                        <!--切换主题配色-->
-                        <li class="dropdown dropdown-skin">
-                            <span data-toggle="dropdown" class="icon-palette"><i class="mdi mdi-palette"></i></span>
-                            <ul class="dropdown-menu dropdown-menu-right" data-stopPropagation="true">
-                                <li class="drop-title"><p>主题</p></li>
-                                <li class="drop-skin-li clearfix">
-                  <span class="inverse">
-                    <input type="radio" name="site_theme" value="default" id="site_theme_1" checked>
-                    <label for="site_theme_1"></label>
-                  </span>
-                                    <span>
-                    <input type="radio" name="site_theme" value="dark" id="site_theme_2">
-                    <label for="site_theme_2"></label>
-                  </span>
-                                    <span>
-                    <input type="radio" name="site_theme" value="translucent" id="site_theme_3">
-                    <label for="site_theme_3"></label>
-                  </span>
-                                </li>
-                                <li class="drop-title"><p>LOGO</p></li>
-                                <li class="drop-skin-li clearfix">
-                  <span class="inverse">
-                    <input type="radio" name="logo_bg" value="default" id="logo_bg_1" checked>
-                    <label for="logo_bg_1"></label>
-                  </span>
-                                    <span>
-                    <input type="radio" name="logo_bg" value="color_2" id="logo_bg_2">
-                    <label for="logo_bg_2"></label>
-                  </span>
-                                    <span>
-                    <input type="radio" name="logo_bg" value="color_3" id="logo_bg_3">
-                    <label for="logo_bg_3"></label>
-                  </span>
-                                    <span>
-                    <input type="radio" name="logo_bg" value="color_4" id="logo_bg_4">
-                    <label for="logo_bg_4"></label>
-                  </span>
-                                    <span>
-                    <input type="radio" name="logo_bg" value="color_5" id="logo_bg_5">
-                    <label for="logo_bg_5"></label>
-                  </span>
-                                    <span>
-                    <input type="radio" name="logo_bg" value="color_6" id="logo_bg_6">
-                    <label for="logo_bg_6"></label>
-                  </span>
-                                    <span>
-                    <input type="radio" name="logo_bg" value="color_7" id="logo_bg_7">
-                    <label for="logo_bg_7"></label>
-                  </span>
-                                    <span>
-                    <input type="radio" name="logo_bg" value="color_8" id="logo_bg_8">
-                    <label for="logo_bg_8"></label>
-                  </span>
-                                </li>
-                                <li class="drop-title"><p>头部</p></li>
-                                <li class="drop-skin-li clearfix">
-                  <span class="inverse">
-                    <input type="radio" name="header_bg" value="default" id="header_bg_1" checked>
-                    <label for="header_bg_1"></label>
-                  </span>
-                                    <span>
-                    <input type="radio" name="header_bg" value="color_2" id="header_bg_2">
-                    <label for="header_bg_2"></label>
-                  </span>
-                                    <span>
-                    <input type="radio" name="header_bg" value="color_3" id="header_bg_3">
-                    <label for="header_bg_3"></label>
-                  </span>
-                                    <span>
-                    <input type="radio" name="header_bg" value="color_4" id="header_bg_4">
-                    <label for="header_bg_4"></label>
-                  </span>
-                                    <span>
-                    <input type="radio" name="header_bg" value="color_5" id="header_bg_5">
-                    <label for="header_bg_5"></label>
-                  </span>
-                                    <span>
-                    <input type="radio" name="header_bg" value="color_6" id="header_bg_6">
-                    <label for="header_bg_6"></label>
-                  </span>
-                                    <span>
-                    <input type="radio" name="header_bg" value="color_7" id="header_bg_7">
-                    <label for="header_bg_7"></label>
-                  </span>
-                                    <span>
-                    <input type="radio" name="header_bg" value="color_8" id="header_bg_8">
-                    <label for="header_bg_8"></label>
-                  </span>
-                                </li>
-                                <li class="drop-title"><p>侧边栏</p></li>
-                                <li class="drop-skin-li clearfix">
-                  <span class="inverse">
-                    <input type="radio" name="sidebar_bg" value="default" id="sidebar_bg_1" checked>
-                    <label for="sidebar_bg_1"></label>
-                  </span>
-                                    <span>
-                    <input type="radio" name="sidebar_bg" value="color_2" id="sidebar_bg_2">
-                    <label for="sidebar_bg_2"></label>
-                  </span>
-                                    <span>
-                    <input type="radio" name="sidebar_bg" value="color_3" id="sidebar_bg_3">
-                    <label for="sidebar_bg_3"></label>
-                  </span>
-                                    <span>
-                    <input type="radio" name="sidebar_bg" value="color_4" id="sidebar_bg_4">
-                    <label for="sidebar_bg_4"></label>
-                  </span>
-                                    <span>
-                    <input type="radio" name="sidebar_bg" value="color_5" id="sidebar_bg_5">
-                    <label for="sidebar_bg_5"></label>
-                  </span>
-                                    <span>
-                    <input type="radio" name="sidebar_bg" value="color_6" id="sidebar_bg_6">
-                    <label for="sidebar_bg_6"></label>
-                  </span>
-                                    <span>
-                    <input type="radio" name="sidebar_bg" value="color_7" id="sidebar_bg_7">
-                    <label for="sidebar_bg_7"></label>
-                  </span>
-                                    <span>
-                    <input type="radio" name="sidebar_bg" value="color_8" id="sidebar_bg_8">
-                    <label for="sidebar_bg_8"></label>
-                  </span>
-                                </li>
-                            </ul>
-                        </li>
-                        <!--切换主题配色-->
                     </ul>
 
                 </div>
@@ -284,50 +98,42 @@
                                     </div>
                                 </form>
                                 <div class="toolbar-btn-action">
-                                    <a class="btn btn-primary m-r-5" href="#!"><i class="mdi mdi-plus"></i> 新增</a>
-                                    <a class="btn btn-success m-r-5" href="#!"><i class="mdi mdi-check"></i> 启用</a>
-                                    <a class="btn btn-warning m-r-5" href="#!"><i class="mdi mdi-block-helper"></i> 禁用</a>
-                                    <a class="btn btn-danger" href="#!"><i class="mdi mdi-window-close"></i> 删除</a>
+                                    <a class="btn btn-primary m-r-5" href="/user/add/"><i class="mdi mdi-plus"></i> 新增</a>
+<!--                                    <a class="btn btn-success m-r-5" href="#!"><i class="mdi mdi-check"></i> 启用</a>-->
+<!--                                    <a class="btn btn-warning m-r-5" href="#!"><i class="mdi mdi-block-helper"></i> 禁用</a>-->
+<!--                                    <a class="btn btn-danger" href="#!"><i class="mdi mdi-window-close"></i> 删除</a>-->
                                 </div>
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
                                     <table class="table table-bordered">
-                                        <thead>
-                                        <tr align="center">
-                                            <th>
-                                                <label class="checkbox checkbox-primary">
-                                                    <input type="checkbox" id="check-all"><span></span>
-                                                </label>
-                                            </th>
-                                            <th>用户名</th>
-                                            <th>昵称</th>
-                                            <th>年龄</th>
-                                            <th>家庭地址</th>
-                                            <th>头像</th>
-                                            <th>邮箱</th>
-                                            <th>备注</th>
-                                            <th>操作</th>
-                                        </tr>
+                                        <thead align="center">
+                                            <tr>
+                                                <td>ID</td>
+                                                <td>用户名</td>
+                                                <td>昵称</td>
+                                                <td>年龄</td>
+                                                <td>家庭地址</td>
+                                                <td>头像</td>
+                                                <td>邮箱</td>
+                                                <td>备注</td>
+                                                <td>操作</td>
+                                            </tr>
                                         </thead>
                                         <tbody>
                                         <tr th:each="list:${list.list}" align="center">
-                                            <td>
-                                                <label class="checkbox checkbox-primary">
-                                                    <input type="checkbox" name="ids[]" th:value="${list.id}"><span></span>
-                                                </label>
-                                            </td>
+                                            <td th:text="${list.id}"></td>
                                             <td th:text="${list.loginName}"></td>
                                             <td th:text="${list.nickName}"></td>
                                             <td th:text="${list.age}"></td>
                                             <td th:text="${list.address}"></td>
                                             <td><img th:src="${list.avatar}" class="img-avatar img-avatar-48 m-r-10"/></td>
                                             <td th:text="${list.email}"></td>
-                                            <td th:text="${list.remark}"></td>
+                                            <td th:text="${list.remark}" width="15%"></td>
                                             <td>
                                                 <div class="btn-group">
-                                                    <a class="btn btn-xs btn-default" href="#!" title="编辑" data-toggle="tooltip"><i class="mdi mdi-pencil"></i></a>
-                                                    <a class="btn btn-xs btn-default" href="#!" title="删除" data-toggle="tooltip"><i class="mdi mdi-window-close"></i></a>
+                                                    <a class="btn btn-xs btn-default" href="#" title="编辑" data-toggle="tooltip"><i class="mdi mdi-pencil"></i></a>
+                                                    <a class="btn btn-xs btn-default delUser" href="#" title="删除" data-toggle="tooltip" th:data="${list.id}"><i class="mdi mdi-window-close"></i></a>
                                                 </div>
                                             </td>
                                         </tr>
@@ -339,19 +145,19 @@
                                         <span>«</span>
                                     </li>
                                     <li th:unless="${list.pageNum==1}">
-                                        <a th:href="@{/user/list(pageNum=${list.pageNum-1})}"><span>«</span></a>
+                                        <a th:href="@{/user/list/(pageNum=${list.pageNum-1})}"><span>«</span></a>
                                     </li>
-                                    <li th:each="i:${#numbers.sequence(1,list.pages)}">
-                                        <a th:href="@{/user/list(pageNum=${i})}" th:text="${i}">1</a>
+                                    <li th:each="i:${#numbers.sequence(1,list.pages)}" th:class="${list.pageNum== i ?'active':''}">
+                                        <a th:if="${list.pageNum != i}" th:href="@{/user/list/(pageNum=${i})}" th:text="${i}">1</a>
+                                        <span th:if="${list.pageNum == i}" th:text="${i}"></span>
                                     </li>
                                     <li th:if="${list.pages==list.pageNum}" class="disabled">
                                         <span>»</span>
                                     </li>
                                     <li th:unless="${list.pages==list.pageNum}">
-                                        <a th:href="@{/user/list(pageNum=${list.pageNum+1})}"><span>»</span></a>
+                                        <a th:href="@{/user/list/(pageNum=${list.pageNum+1})}"><span>»</span></a>
                                     </li>
                                 </ul>
-
                             </div>
                         </div>
                     </div>
@@ -365,16 +171,42 @@
     </div>
 </div>
 
-<script type="text/javascript" th:src="@{/jquery.min.js}"></script>
-<script type="text/javascript" th:src="@{/bootstrap.min.js}"></script>
-<script type="text/javascript" th:src="@{/perfect-scrollbar.min.js}"></script>
-<script type="text/javascript" th:src="@{/main.js}"></script>
+<script type="text/javascript" th:src="@{/js/jquery.min.js}"></script>
+<script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script>
+<script type="text/javascript" th:src="@{/js/perfect-scrollbar.min.js}"></script>
+<script type="text/javascript" th:src="@{/js/main.js}"></script>
 <script type="text/javascript">
     $(function(){
         $('.search-bar .dropdown-menu a').click(function() {
             var field = $(this).data('field') || '';
             $('#search-field').val(field);
             $('#search-btn').html($(this).text() + ' <span class="caret"></span>');
+        });
+
+        $('.delUser').click(function () {
+            var statu = confirm("确认要删除该用户吗？");
+            if (!statu) {
+                return false;
+            }
+            var id = $(this).attr('data');
+            if (id > 0) {
+                $.ajax({
+                    type:'POST',
+                    url:'/user/del/',
+                    data:'id=' + id,
+                    success:function(msg){
+                        if(msg == 'success'){
+                            alert('删除成功');
+                            location.reload();
+                        }else{
+                            alert('删除失败');
+                        }
+                    },
+                    error:function(){
+                        alert('删除失败');
+                    }
+                });
+            }
         });
     });
 </script>

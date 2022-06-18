@@ -2,11 +2,14 @@ package com.sxliusir.SpringBootOA.service;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.github.pagehelper.PageInterceptor;
 import com.sxliusir.SpringBootOA.entity.Sys;
 import com.sxliusir.SpringBootOA.mapper.User;
 import com.sxliusir.SpringBootOA.mapper.UserExample;
 import com.sxliusir.SpringBootOA.mapper.UserMapper;
+import org.apache.ibatis.plugin.Interceptor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletRequest;
@@ -38,8 +41,9 @@ public class UserService {
         List<User> users = userMapper.selectByExample(userExample);
         if (users.size() > 0) {
             HttpSession sessoin = request.getSession();
+            sessoin.setAttribute("userInfo", users.get(0));
             sessoin.setAttribute("userId", users.get(0).getId());
-            sessoin.setAttribute("userName", users.get(0).getLoginName());
+            //sessoin.setAttribute("userName", users.get(0).getLoginName());
             return "success";
         } else {
             return "fail";
@@ -76,10 +80,23 @@ public class UserService {
         PageHelper.startPage(pageNum, pageSize);
         UserExample userExample = new UserExample();
         userExample.createCriteria();
-        List<User> list = userMapper.selectByExample(userExample);
+        List<User> list = userMapper.selectByExampleWithBLOBs(userExample);
         return new PageInfo<>(list,5);
     }
 
-
-
+    public String remove(Integer id) {
+        //不能自己删除自己
+        HttpSession sessoin = request.getSession();
+        User userInfo = (User)sessoin.getAttribute("userInfo");
+        Integer userId = userInfo.getId();
+        if (id == userId) {
+            return "fail";
+        }
+        int i = userMapper.deleteByPrimaryKey(id);
+        if (i > 0) {
+            return "success";
+        } else {
+            return "fail";
+        }
+    }
 }

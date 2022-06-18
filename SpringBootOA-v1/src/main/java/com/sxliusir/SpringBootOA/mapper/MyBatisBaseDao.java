@@ -23,6 +23,7 @@ public interface MyBatisBaseDao<Model, PK extends Serializable, E> {
     int insertSelective(Model record);
 
     List<Model> selectByExample(E example);
+    List<Model> selectByExampleWithBLOBs(E example);
 
     Model selectByPrimaryKey(PK id);
 

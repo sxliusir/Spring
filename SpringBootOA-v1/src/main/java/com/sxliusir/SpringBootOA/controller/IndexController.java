@@ -1,5 +1,6 @@
 package com.sxliusir.SpringBootOA.controller;
 
+import com.sxliusir.SpringBootOA.mapper.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -8,13 +9,10 @@ import javax.servlet.http.HttpServletRequest;
 
 @Controller
 public class IndexController {
-    @RequestMapping("/index")
+    @RequestMapping("/index/")
     public String index(HttpServletRequest request, ModelMap modelMap) {
-        Object username = request.getSession().getAttribute("userName");
-        if (username == null) {
-            return "redirect:/login";
-        }
-        modelMap.addAttribute("username", username);
+        User user = (User) request.getSession().getAttribute("userInfo");
+        modelMap.addAttribute("user", user);
         return "backend/index";
     }
 }

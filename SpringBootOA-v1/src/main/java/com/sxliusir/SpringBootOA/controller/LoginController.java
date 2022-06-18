@@ -24,13 +24,13 @@ public class LoginController {
      * 登录页面
      * @return
      */
-    @GetMapping("/login")
+    @GetMapping("/login/")
     public String login(ModelMap modelMap) {
         modelMap.addAttribute("systemName", sys.getSystemName());
-        return "/login/login";
+        return "login/login";
     }
 
-    @PostMapping("/login")
+    @PostMapping("/login/")
     @ResponseBody
     public String userLogin(@ModelAttribute User user) {
         String status = userService.login(user);
