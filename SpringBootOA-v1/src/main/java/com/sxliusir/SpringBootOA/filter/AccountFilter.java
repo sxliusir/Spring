@@ -12,7 +12,7 @@ import java.io.IOException;
 @WebFilter(urlPatterns = "/*")
 public class AccountFilter implements Filter {
     // 不需要登录的 URI
-    private final String[] IGNORE_URI = {"/css/","/js/","/login","/images", "/fonts/"};
+    private final String[] IGNORE_URI = {"/css/","/js/","/login","/images", "/fonts/","/swagger-ui.html", "static/css/", "static/js/", "swagger-resources", "/**/error", "v2/api-docs"};
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
