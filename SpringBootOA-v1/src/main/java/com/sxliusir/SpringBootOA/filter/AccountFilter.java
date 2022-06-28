@@ -12,7 +12,7 @@ import java.io.IOException;
 @WebFilter(urlPatterns = "/*")
 public class AccountFilter implements Filter {
     // 不需要登录的 URI
-    private final String[] IGNORE_URI = {"/css/","/js/","/login","/images", "/fonts/","/swagger-ui.html", "static/css/", "static/js/", "swagger-resources", "/**/error", "v2/api-docs"};
+    private final String[] IGNORE_URI = {"/css/","/js/","/login","/images", "/fonts/","/doc.html|swagger|.ico|.js|.css|/v2/api-docs"};
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
@@ -26,7 +26,7 @@ public class AccountFilter implements Filter {
 
         String uri = request.getRequestURI();
         // 当前访问的URI是不是 在Ignore列表里
-        System.out.println("uri:" + uri);
+        //System.out.println("uri:" + uri);
         boolean pass = canPassIgnore(uri);
         if (pass) {
             // 在的话 放行
@@ -36,7 +36,7 @@ public class AccountFilter implements Filter {
         // 是否已登录，从session里找 Account
 
         Object account = request.getSession().getAttribute("userInfo");
-        System.out.println("getSession userId:" + account);
+        //System.out.println("getSession userId:" + account);
         if (null == account) {
             // 没登录 跳转登录页面
 
@@ -44,7 +44,7 @@ public class AccountFilter implements Filter {
             return;
         }
 
-        System.out.println("----filter----" + uri);
+        //System.out.println("----filter----" + uri);
         chain.doFilter(request, response);
     }
 
