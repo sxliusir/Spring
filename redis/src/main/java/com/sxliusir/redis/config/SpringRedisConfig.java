@@ -11,7 +11,6 @@ import org.springframework.data.redis.connection.lettuce.LettuceConnectionFactor
 public class SpringRedisConfig {
     @Bean
     public LettuceConnectionFactory redisConnectionFactory() {
-
         return new LettuceConnectionFactory(new RedisStandaloneConfiguration("127.0.0.1", 6379));
     }
 }
