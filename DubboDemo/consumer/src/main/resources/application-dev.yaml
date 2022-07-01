@@ -1,0 +1,13 @@
+server:
+  port: 8091
+
+spring:
+  application:
+    name: dubbo-samples-consumer-springCloud
+
+dubbo:
+  registry:
+    address: zookeeper://192.168.150.13:2181
+    timeout: 2000
+  protocol:
+    name: dubbo

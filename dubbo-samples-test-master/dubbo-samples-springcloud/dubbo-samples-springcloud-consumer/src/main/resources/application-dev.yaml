@@ -1,0 +1,26 @@
+server:
+  port: 8091
+
+
+spring:
+  application:
+    name: dubbo-samples-consumer-springCloud
+  profiles:
+    include: [dev]
+
+dubbo:
+  registry:
+    address:  ${dubbo.zookeeper.host}
+    timeout: 10000
+  protocol:
+    name: dubbo
+    serialization: hessian2
+
+#  scan:
+#    base-packages: com.dubbo.service
+logging:
+  level:
+#    最高优先日志级别
+    root: INFO
+    # 自定义变量传递给xml文件
+  log-path: /data/dubboStress/consumer
