@@ -1,13 +1,13 @@
-package com.sxliusir.consumer;
+package com.sxliusir;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ConsumerApplicationTests {
+class EurekaClient2ApplicationTests {
 
-	@Test
-	void contextLoads() {
-	}
+    @Test
+    void contextLoads() {
+    }
 
 }

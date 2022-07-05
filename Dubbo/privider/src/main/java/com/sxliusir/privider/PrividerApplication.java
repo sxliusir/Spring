@@ -1,13 +1,13 @@
-package com.sxliusir.consumer;
+package com.sxliusir.privider;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ConsumerApplication {
+public class PrividerApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ConsumerApplication.class, args);
+		SpringApplication.run(PrividerApplication.class, args);
 	}
 
 }

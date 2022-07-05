@@ -1,10 +1,10 @@
-package com.sxliusir.consumer;
+package com.sxliusir.privider;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ConsumerApplicationTests {
+class PrividerApplicationTests {
 
 	@Test
 	void contextLoads() {
