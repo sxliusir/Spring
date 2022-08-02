@@ -1,0 +1,48 @@
+server:
+  port: 8082
+
+spring:
+  application:
+    name: consumer
+
+eureka:
+  client:
+    # eureka server的路径
+    serviceUrl:
+      defaultZone: http://admin:admin@eureka9000.com:9000/eureka/,http://admin:admin@eureka9001.com:9001/eureka/,http://admin:admin@eureka9002.com:9002/eureka/
+
+feign:
+  #开启hystrix熔断机制
+  hystrix:
+    enabled: true
+  client:
+    config:
+      #配置服务名为provider的相关信息
+      provider:
+        #打印的日志级别
+        loggerLevel: FULL
+        #指的是建立连接所用的时间
+        connectTimeout: 2000
+        #指的是建立连接后从服务器读取到可用资源所用的时间
+        readTimeout: 5000
+      #default代表所有服务
+      default:
+        #feign客户端建立连接超时时间
+        connectTimeout: 2000
+        #feign客户端建立连接后读取资源超时时间
+        readTimeout: 3000
+#feign.client.config.provider.loggerLevel 对应的日志级别需配合logging.level
+logging:
+  level:
+    com.sxliusir.consumer.service.HelloService: debug
+
+# 配置熔断超时时间
+hystrix:
+  command:
+    default:
+      execution:
+        timeout:
+          enabled: true
+        isolation:
+          thread:
+            timeoutInMilliseconds: 50000

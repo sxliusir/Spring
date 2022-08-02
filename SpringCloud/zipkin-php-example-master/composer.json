@@ -1,0 +1,22 @@
+{
+    "name": "openzipkin/zipkin-php-example",
+    "description": "Example of two services collaborating in a request",
+    "require": {
+        "monolog/monolog": "^1.23",
+        "guzzlehttp/guzzle": "^7.2",
+        "openzipkin/zipkin": "3.0.0",
+        "symfony/http-foundation": "3.4.x-dev"
+    },
+    "minimum-stability": "beta",
+    "authors": [
+        {
+            "name": "José Carlos Chávez",
+            "email": "jcchavezs@gmail.com"
+        }
+    ],
+    "scripts": {
+        "run-frontend": "php -S 'localhost:8090' frontend.php",
+        "run-backend": "php -S 'localhost:9000' backend.php",
+        "run-zipkin": "docker run -p 9411:9411 -d openzipkin/zipkin"
+    }
+}
